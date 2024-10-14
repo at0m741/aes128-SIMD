@@ -15,9 +15,9 @@ inline void Shift(uint8_t state[4][Nb]) {
         uint8_t temp[Nb];
         for (int j = 0; j < Nb; j++)
             temp[j] = state[i][(j + i) % Nb];
-        for (int j = 0; j < Nb; j++)
-            state[i][j] = temp[j];
-    }
+		memcpy(state[i], temp, Nb);    
+	}
+	_mm_sfence();
 }
 
 
@@ -28,8 +28,7 @@ inline void InvShift(uint8_t state[4][Nb]) {
         for (int j = 0; j < Nb; j++) {
             temp[j] = state[i][(j - i + Nb) % Nb];
         }
-        for (int j = 0; j < Nb; j++) {
-            state[i][j] = temp[j];
-        }
+		memcpy(state[i], temp, Nb);	
     }
+	_mm_sfence();
 }

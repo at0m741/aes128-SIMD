@@ -36,14 +36,21 @@ __attribute__((always_inline))
 inline void Sub(uint8_t state[4][Nb]) {
 	for (int i = 0; i < 4; ++i)
 		for (int j = 0; j < Nb; ++j)
+		{
+			_mm_prefetch(&state[i][j] + Nb, _MM_HINT_T0);
 			state[i][j] = sbox[state[i][j]];
+		}
+	_mm_sfence();
 }
 
 __attribute__((always_inline))
 inline void InvSub(uint8_t state[4][Nb]) {
 	for (int i = 0; i < 4; ++i)
 		for (int j = 0; j < Nb; ++j)
+		{
+			_mm_prefetch(&state[i][j] + Nb, _MM_HINT_T0);
 			state[i][j] = rsbox[state[i][j]];
+		}
+	_mm_sfence();
 }
-
 

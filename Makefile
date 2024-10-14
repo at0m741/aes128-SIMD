@@ -4,7 +4,7 @@ CC = clang
 
 SRCS = $(wildcard *.c)
 
-CFLAGS = -O3 -mavx2 -mfma 
+CFLAGS = -O3 -mavx2 -mfma -g 
 
 OBJ = $(SRCS:.c=.o)
 
