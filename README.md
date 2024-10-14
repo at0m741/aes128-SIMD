@@ -24,3 +24,5 @@ A lightweight and optimized AES-128/256 encryption library written in C, designe
    ```bash
    git clone https://github.com/at0m741/aes256-SIMD.git
    cd aes256-SIMD
+   make
+   ```
