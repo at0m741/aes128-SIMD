@@ -16,6 +16,7 @@ inline void Columns(uint8_t state[4][Nb]) {
 	_mm_sfence();
 }
 
+
 __attribute__((always_inline))
 inline void InvColumns(uint8_t state[4][Nb]) {
 	uint8_t temp_state[4][Nb];

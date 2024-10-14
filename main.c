@@ -9,7 +9,7 @@ int main() {
         printf("%02X ", key[i]);
     printf("\n");
 	printf("key size : %ld\n", sizeof(key) / sizeof(key[0]));
-    uint8_t expandedKey[4 * Nb * (Nr + 1)];
+	uint8_t expandedKey[4 * Nb * (Nr + 1)];
     Expansion(key, expandedKey);
 
     printf("Expanded key : ");
@@ -39,15 +39,8 @@ int main() {
         Cipher(paddedData + i, ciphertext + i, expandedKey);
     }
 
-    printf("Encrypted str : ");
-    for (size_t i = 0; i < paddedLen; ++i)
-        printf("%02X ", ciphertext[i]);
-    printf("\n");
-	base64_encode(ciphertext, paddedLen);
 	printf("\n");
-	printf("Encrypted str : %.*s\n", (int)paddedLen, ciphertext);
-	printf("\n");
-    uint8_t *decryptedData = malloc(paddedLen);
+    uint8_t *decryptedData = _mm_malloc(paddedLen, 16);
 
     for (size_t i = 0; i < paddedLen; i += 16) {
         InvCipher(ciphertext + i, decryptedData + i, expandedKey);
@@ -68,7 +61,7 @@ int main() {
     else
         printf("Failed.\n");
 
-    free(paddedData);
+    _mm_free(paddedData);
     free(ciphertext);
     free(decryptedData);
 

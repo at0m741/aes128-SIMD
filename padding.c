@@ -3,7 +3,7 @@
 void PadBuffer(uint8_t *input, size_t inputLen, uint8_t **output, size_t *outputLen) {
     size_t blockSize = 16;
     size_t paddedLen = ((inputLen / blockSize) + 1) * blockSize;
-    uint8_t *paddedData = malloc(paddedLen);
+    uint8_t *paddedData = _mm_malloc(paddedLen, 16);
     memcpy(paddedData, input, inputLen);
     uint8_t padValue = paddedLen - inputLen;
     memset(paddedData + inputLen, padValue, padValue);
