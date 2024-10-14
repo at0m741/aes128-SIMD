@@ -10,7 +10,7 @@ A lightweight and optimized AES-128/256 encryption library written in C, designe
 
 ## Features
 
-- **AES-128/256 Implementation:** Provides encryption and decryption using the AES-128 standard.
+- **AES-128/256 Implementation:** Provides encryption and decryption using the AES-128 standard (for aes256, you have to changes the main and the sizes).
 - **Padding Support:** Implements PKCS#7 padding to handle messages of arbitrary lengths.
 - **Key Expansion:** Efficient key expansion with SSE optimizations for faster performance.
 - **SSE Optimizations:** Utilizes Streaming SIMD Extensions to accelerate critical cryptographic operations.
