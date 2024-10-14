@@ -18,6 +18,9 @@ void Expansion(uint8_t Key[4 * Nk], uint8_t w[4 * Nb * (Nr + 1)]) {
 		_mm_prefetch(&Key[i] + 16, _MM_HINT_T0);
 		temp = _mm_loadu_si128((__m128i*)&Key[i]);
 		_mm_storeu_si128((__m128i*)&w[i], temp);
+		_mm_storeu_si128((__m128i*)&w[i + 4], temp);
+		_mm_storeu_si128((__m128i*)&w[i + 8], temp);
+		_mm_storeu_si128((__m128i*)&w[i + 12], temp);
 	}
 
 	i = Nk;
