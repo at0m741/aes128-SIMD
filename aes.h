@@ -84,4 +84,8 @@ size_t RemovePadding(uint8_t *input, size_t inputLen);
 void Cipher(uint8_t in[4 * Nb], uint8_t out[4 * Nb], uint8_t w[4 * Nb * (Nr + 1)]);
 void InvCipher(uint8_t in[4 * Nb], uint8_t out[4 * Nb], uint8_t w[4 * Nb * (Nr + 1)]);
 
+/* base64 */
+
+char* base64_encode(const unsigned char *input, int len);
+
 #endif
